@@ -1,0 +1,565 @@
+%!PS-Adobe-2.1
+%%Creator: groff version 1.01
+%%DocumentFonts: Times-Roman Times-Italic Times-Bold
+%%DocumentSuppliedFonts:
+%%DocumentNeededFonts: Times-Roman Times-Italic Times-Bold
+%%Pages: 5
+%%EndComments
+/grops 100 dict def grops begin
+%!
+% If you add definitions here, be sure to check that MAX_PROLOGUE_DEFS
+% in ps.c is large enough.
+
+% The ASCII code of the space character.
+/SC 32 def
+
+/A /show load def
+/B { 0 SC 3 -1 roll widthshow } bind def
+/C { 0 exch ashow } bind def
+/D { 0 exch 0 SC 5 2 roll awidthshow } bind def
+/E { 0 rmoveto show } bind def
+/F { 0 rmoveto 0 SC 3 -1 roll widthshow } bind def
+/G { 0 rmoveto 0 exch ashow } bind def
+/H { 0 rmoveto 0 exch 0 SC 5 2 roll awidthshow } bind def
+/I { 0 exch rmoveto show } bind def
+/J { 0 exch rmoveto 0 SC 3 -1 roll widthshow } bind def
+/K { 0 exch rmoveto 0 exch ashow } bind def
+/L { 0 exch rmoveto 0 exch 0 SC 5 2 roll awidthshow } bind def
+/M { rmoveto show } bind def
+/N { rmoveto 0 SC 3 -1 roll widthshow } bind def
+/O { rmoveto 0 exch ashow } bind def
+/P { rmoveto 0 exch 0 SC 5 2 roll awidthshow } bind def
+/Q { moveto show } bind def 
+/R { moveto 0 SC 3 -1 roll widthshow } bind def
+/S { moveto 0 exch ashow } bind def
+/T { moveto 0 exch 0 SC 5 2 roll awidthshow } bind def
+
+% name size font SF -
+
+/SF {
+	findfont exch
+	[ exch dup 0 exch 0 exch neg 0 0 ] makefont
+	dup setfont
+	[ exch /setfont cvx ] cvx bind def
+} bind def
+
+% name a c d font MF
+
+/MF {
+	findfont
+	[ 5 2 roll
+	0 3 1 roll % b
+	neg 0 0 ] makefont
+	dup setfont
+	[ exch /setfont cvx ] cvx bind def
+} bind def
+
+	
+% BP -
+
+/BP {
+	/level0 save def
+	1 setlinecap
+	1 setlinejoin
+	72 RES div dup scale
+	LS {
+		90 rotate
+	} {
+		0 PL translate
+	} ifelse
+	1 -1 scale
+} bind def
+
+/EP {
+	level0 restore
+	showpage
+} bind def
+
+
+% centerx centery radius startangle endangle DA -
+
+/DA {
+	newpath arcn stroke
+} bind def
+
+% x y SN - x' y'
+% round a position to nearest (pixel + (.25,.25))
+
+/SN {
+	transform 
+	.25 sub exch .25 sub exch
+	round .25 add exch round .25 add exch
+	itransform
+} bind def
+	
+% endx endy startx starty DL -
+% we round the endpoints of the line, so that parallel horizontal
+% and vertical lines will appear even
+
+/DL {
+	SN
+	moveto
+	SN
+	lineto stroke
+} bind def
+
+% centerx centery radius DC -
+
+/DC {
+	newpath 0 360 arc closepath
+} bind def
+
+
+/TM matrix def
+
+%  width height centerx centery DE -
+
+/DE {
+	TM currentmatrix pop
+	translate scale newpath 0 0 .5 0 360 arc closepath
+	TM setmatrix
+} bind def
+
+% these are for splines
+
+/RC /rcurveto load def
+/RL /rlineto load def
+/ST /stroke load def
+/MT /moveto load def
+/CL /closepath load def
+
+% fill the last path
+
+% amount FL -
+
+/FL {
+	currentgray exch setgray fill setgray
+} bind def
+
+% fill with the ``current color''
+
+/BL /fill load def
+
+/LW /setlinewidth load def
+% new_font_name encoding_vector old_font_name RE -
+
+/RE {
+	findfont
+	dup maxlength dict begin
+	{
+		1 index /FID ne { def } { pop pop } ifelse
+	} forall
+	/Encoding exch def
+	dup /FontName exch def
+	currentdict end definefont pop
+} bind def
+
+% hpos vpos EBEGIN -
+
+/EBEGIN {
+	moveto
+	DEFS begin
+} bind def
+
+/EEND /end load def
+
+% llx lly newwid wid newht ht newllx newlly -
+
+/PICTURE {
+	translate
+	div 3 1 roll div exch scale
+	neg exch neg exch translate
+	% set the graphics state to default values
+	0 setgray
+	0 setlinecap
+	1 setlinewidth
+	0 setlinejoin
+	10 setmiterlimit
+	[] 0 setdash
+	newpath
+} bind def
+/DEFS 1 dict def DEFS begin/u{.001 mul}bind def end end
+%%EndProlog
+%%IncludeFont: Times-Roman
+%%IncludeFont: Times-Italic
+%%IncludeFont: Times-Bold
+%%BeginSetup
+grops begin/#copies 1 def/RES 72 def/PL 792 def/LS false def/ENC0[/asciicircum
+/asciitilde/Scaron/Zcaron/scaron/zcaron/Ydieresis/trademark/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/space/exclam/quotedbl/numbersign/dollar
+/percent/ampersand/quoteright/parenleft/parenright/asterisk/plus/comma/hyphen
+/period/slash/zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+/less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/Q/R/S/T/U/V/W/X
+/Y/Z/bracketleft/backslash/bracketright/circumflex/underscore/quoteleft/a/b/c/d
+/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/tilde
+/.notdef/quotesinglbase/guillemotleft/guillemotright/bullet/florin/fraction
+/perthousand/dagger/daggerdbl/endash/emdash/ff/fi/fl/ffi/ffl/dotlessi/dotlessj
+/grave/hungarumlaut/dotaccent/breve/caron/ring/ogonek/quotedblleft
+/quotedblright/oe/lslash/quotedblbase/OE/Lslash/.notdef/exclamdown/cent
+/sterling/currency/yen/brokenbar/section/dieresis/copyright/ordfeminine
+/guilsinglleft/logicalnot/minus/registered/macron/degree/plusminus/twosuperior
+/threesuperior/acute/mu/paragraph/periodcentered/cedilla/onesuperior
+/ordmasculine/guilsinglright/onequarter/onehalf/threequarters/questiondown
+/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave/Eacute
+/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis/Eth/Ntilde/Ograve
+/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute/Ucircumflex
+/Udieresis/Yacute/Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+/aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave/iacute
+/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex/otilde/odieresis
+/divide/oslash/ugrave/uacute/ucircumflex/udieresis/yacute/thorn/ydieresis]def
+/Times-Roman@0 ENC0/Times-Roman RE/Times-Italic@0 ENC0/Times-Italic RE
+/Times-Bold@0 ENC0/Times-Bold RE
+%%EndSetup
+%%Page: 1 1
+BP/F0 12/Times-Bold@0 SF(An Overview of the VST)189.174 123 Q 3(aM)-1.104 G
+(icr)334.386 123 Q(okernel)-.216 E/F1 10/Times-Italic@0 SF(Andr)254.16 147 Q
+(ew V)-.37 E(alencia)-1.11 E/F2 10/Times-Roman@0 SF -1.11(Va)247.585 165 S
+(lencia Consulting)1.11 E F1(ABSTRACT)264.385 201 Q F2(VST)133 228.6 Q 3.108
+(ai)-.7 G 3.108(sa)161.518 228.6 S 3.108(ne)172.956 228.6 S .608
+(xperimental kernel which attempts to blend the design of a microker)185.504
+228.6 R(-)-.2 E .922(nel with the system or)108 240.6 R .922
+(ganization of Plan 9.)-.18 F .922
+(The result is a small privileged kernel run-)5.922 F .623(ning user)108 252.6
+R .622(-mode tasks to provide system services such as device drivers, \214lesy\
+stems, and)-.2 F(name registry)108 264.6 Q 5(.L)-.65 G
+(ike Plan 9, each service provides a \214lesystem-like interface.)175.67 264.6
+Q/F3 10/Times-Bold@0 SF 2.5(1. Motivation)72 300.6 R F2 -.7(Tw)97 316.2 S 5.385
+(oo).7 G 2.886(perating systems have emer)125.015 316.2 R 2.886
+(ged in recent years which show considerable promise.)-.18 F(The)7.886 E 1.058
+(POSIX-conforming QNX operating system)72 328.2 R/F4 7/Times-Roman@0 SF(1)
+248.764 324.1 Q F2 1.058
+(is a relatively "clean" microkernel, with a 4K executive and)255.822 328.2 R
+.896(most traditional system functions running as user)72 340.2 R .896
+(-mode processes.)-.2 F .897(Meanwhile, Plan 9)5.896 F F4(2)426.562 336.1 Q F2
+.897(has emer)433.459 340.2 R .897(ged as a)-.18 F 1.208
+(next-generation view of computing from the original architects of UNIX.)72
+352.2 R 1.207(While each system represents)6.207 F 2.832
+(signi\214cant new system functionality)72 364.2 R 5.333(,t)-.65 G 2.833
+(he frustration has been in the proprietary nature of each sys-)235.18 364.2 R
+(tem--synthesis and experimentation by an outside party is dif)72 376.2 Q
+(\214cult or impossible.)-.18 E F3 2.5(2. A)72 400.2 R
+(Platform for Experimentation)2.5 E 2.5(2.1. A)72 424.2 R(New Sour)2.5 E
+(ce Base)-.18 E F2 -.4(Wi)97 439.8 S .913
+(th these interesting new ideas to try).4 F 3.413(,a)-.65 G .913
+(nd without a suitable code base on which to try them, the)265.651 439.8 R .361
+(only option was to wait for the authors of these systems to publish more pape\
+rs.)72 451.8 R .362(When the author recently)5.361 F .799
+(had the opportunity to take a 6 month sabbatical, the result was the VST)72
+463.8 R 3.299(ao)-.7 G .798(perating system, written from)383.286 463.8 R 4.642
+(scratch. VST)72 475.8 R 4.642(ai)-.7 G 4.643(san)140.014 475.8 S 2.143(on-pro\
+prietary source base permitting experimentation in many of the areas \214rst)
+162.63 475.8 R .507(broached by Plan 9 and QNX.)72 487.8 R .507
+(While the full design is beyond the scope of this overview)5.507 F 3.006(,s)
+-.65 G .506(everal general)447.134 487.8 R
+(design decisions are worth mentioning.)72 499.8 Q F3 2.5(2.2. Symmetric)72
+523.8 R(Multipr)2.5 E(ocessing)-.18 E F2 .101
+(Microkernels have a surprising interaction with multiprocessing support.)97
+539.4 R .101(In a monolithic kernel, vast)5.101 F .233
+(amounts of system functionality all reside in the same kernel address space.)
+72 551.4 R .233(When the kernel \214rst supports)5.233 F .329(multiprocessing,\
+ all of this code must be revamped to handle multiple parallel threads of exec\
+ution.)72 563.4 R F4(3)474.341 559.3 Q F2(Much)480.67 563.4 Q .486
+(of this "kernel" code is moved out to individual tasks in a microkernel or)72
+575.4 R 2.986(ganization. W)-.18 F .486(ith such an or)-.4 F(gani-)-.18 E .057
+(zational change, the job of converting this code to the appropriate level of \
+parallelism is divided.)72 587.4 R 2.556(Ap)5.056 G(rocess)479.01 587.4 Q 1.027
+(can be single-threaded; it can be marked serially-reentrant \(multiple thread\
+s, but only one running in the)72 599.4 R 1.219(address space at a time--like \
+a uniprocessor UNIX kernel\); or the threads can run fully in parallel.)72
+611.4 R(The)6.218 E(decision is made per)72 623.4 Q(-process.)-.2 E .111
+(While real-time attributes are discussed later)97 639 R 2.612(,i)-.4 G 2.612
+(ti)283.618 639 S 2.612(sw)291.79 639 S .112
+(orth noting that the job of writing code to operate)305.512 639 R .645
+(correctly in the presence of parallel CPUs has some syner)72 651 R .644
+(gy with the goal of allowing kernel preemption.)-.18 F .962(In both cases the\
+ programmer must always consider the possibility of the same code paths being \
+entered)72 663 R .417(and reentered at arbitrary points.)72 675 R .416
+(Kernel preemption imposes additional demands, especially in code paths)5.416 F
+.32 LW 144 683 72 683 DL/F5 5.6/Times-Roman@0 SF(1)82 691.52 Q/F6 8
+/Times-Roman@0 SF(Hildebrand, Architectural Overview of QNX)2 3.28 M F5(2)82
+703.32 Q F6(Pike et al, The Plan 9 Operating System)2 3.28 M F5(3)82 715.12 Q
+F6 .233(Operating systems like System V)2 3.28 N .234
+(.4.2 MP try to mitigate this with serializing code "wrappers.")-1.032 F .234
+(Few people)4.234 F(seriously present this as an appropriate solution, or even\
+ an acceptable temporary \214x.)72 728.4 Q EP
+%%Page: 2 2
+BP/F0 10/Times-Roman@0 SF(-2-)282.17 48 Q(like exit\(\).)72 84 Q -.4(Wi)97 99.6
+S .671(th the smaller kernels achieved by moving so much functionality out to \
+processes, the remaining).4 F 1.136
+(code is much easier to design, code, and test.)72 111.6 R 1.135
+(Since writing parallel, preemptive code is harder to write)6.135 F
+(than traditional single-threaded code,)72 123.6 Q/F1 7/Times-Roman@0 SF(4)
+220.86 119.5 Q F0(the reduction in source size is desirable.)226.86 123.6 Q
+(VST)97 139.2 Q(a')-.7 E 2.828(sm)-.55 G .328(achine-independent layers were w\
+ritten for a shared memory symmetric multiprocessor)136.908 139.2 R 5.329(.A)
+-.55 G 1.378(P/V semaphore interface is used for sleep-oriented interlocks.)72
+151.2 R 3.878(AP)6.378 G 1.378(/V spinlock is used for spin-oriented)351.292
+151.2 R 1.054
+(interlocks, and also used to interlock against interrupt service procedures.)
+72 163.2 R 1.055(The machine-dependent code,)6.054 F(sadly)72 175.2 Q 2.5(,i)
+-.65 G 2.5(so)100.24 175.2 S
+(nly written for a uniprocessor i386--the only machine available to the author)
+111.63 175.2 Q(.)-.55 E/F2 10/Times-Bold@0 SF 2.5(2.3. Real)72 199.2 R -.18(Ti)
+2.5 G(me Facilities).18 E F0 .218(While VST)97 214.8 R 2.718(ai)-.7 G 2.717(sn)
+152.286 214.8 S .217(ot a real-time operating system in itself, numerous featu\
+res associated with real-time)163.893 214.8 R .791(systems of)72 226.8 R .791
+(fer themselves naturally to solve microkernel design issues.)-.18 F .792
+(Process memory locking is neces-)5.792 F .271(sary in order to allow a disk d\
+river task to run as a user process \(as otherwise, of course, you will deadlo\
+ck)72 238.8 R .858
+(when your disk driver tries to demand page in a piece of itself from swap.\))
+72 250.8 R .859(Non-degrading priorities are)5.859 F 1.527(necessary to permit\
+ critical system services to respond to many users without being penalized for\
+ their)72 262.8 R .417(apparent heavy CPU use.)72 274.8 R .417(Low-latency pro\
+cess dispatch is necessary to allow interrupt service code to run)5.417 F 1.832
+(in a deterministic amount of time after a device event--especially important \
+in the case of heavy data)72 286.8 R
+(sources like dumb serial ports and LAN interfaces.)72 298.8 Q(VST)97 314.4 Q
+2.794(aw)-.7 G .294(as designed with memory locking and real-time priorities.)
+129.644 314.4 R .295(Except when a spinlock is held, a)5.295 F .702
+(thread is preemptable even when running in kernel mode.)72 326.4 R .702
+(Most spinlocks do not involve interrupt-driven)5.702 F 1.016(code; for these,\
+ interrupts are still accepted and queued even while the spinlock is held--pre\
+emption to a)72 338.4 R
+(real-time process is delayed until the spinlock is released.)72 350.4 Q F2 2.5
+(2.4. Scheduling)72 374.4 R F0(VST)97 390 Q 2.512(au)-.7 G .012
+(ses a very conventional priority-driven scheduler for real-time processes.)
+127.142 390 R(However)5.011 E 2.511(,m)-.4 G .011(ost pro-)473.159 390 R 1.205
+(cesses in the system run under an interactive, timesharing scheduling algorit\
+hm with unusual properties.)72 402 R .932
+(The scheduler is driven from a tree where runnable processes are leafs.)72 414
+R .932(The internal nodes represent the)5.932 F .77(partioning of groups of pr\
+ocesses into percentage "slices" of the CPU pool \(much like a fair share sche\
+d-)72 426 R
+(uler\), with the lowest nodes containing the threads within a process.)72 438
+Q .482(This or)97 453.6 R .482(ganization has two desirable properties.)-.18 F
+.481(First, it allows users and groups of users to partition)5.481 F .166
+(the CPU resources fairly among groups based on local policy)72 465.6 R 5.167
+(.W)-.65 G .167(ith the ratio of CPUs to users approaching)334.791 465.6 R .991
+(1:1, the classic departmental computing scenario may never arise.)72 477.6 R
+.99(But it can be convenient to guarantee)5.991 F .432(that some particular se\
+rver will never consume more than half the CPU time \(unless it would otherwis\
+e be)72 489.6 R(idle.\))72 501.6 Q .513
+(Such a scheduler also provides many of the properties of a gang scheduler)97
+517.2 R 5.512(.W)-.55 G .512(hen the classic UNIX)416.654 517.2 R 1.238(schedu\
+ling algorithm is used to run closely cooperating processes, its global nature\
+ allows any runnable)72 529.2 R 2.166
+(processes to compete directly with the threads.)72 541.2 R 2.166
+(Since all threads under VST)7.166 F 4.666(ae)-.7 G 2.166(xist under a common)
+413.342 541.2 R .164(scheduling node, the threads can voluntarily relinquish t\
+he CPU; the CPU time relinquished remains within)72 553.2 R(the "pool" of the \
+node, so only other related threads under the node will complete for it.)72
+565.2 Q F1(5)422.33 561.1 Q F2 2.5(2.5. Messaging)72 589.2 R F0 .434(In a micr\
+okernel, the goal is to identify a small, cohesive set of kernel functions upo\
+n which all cur)97 604.8 R(-)-.2 E .841(rent and desired future system functio\
+ns can be implemented as user mode tasks.)72 616.8 R .84(Like Plan 9 and QNX,)
+5.84 F(VST)72 628.8 Q 2.787(au)-.7 G .287
+(ses a messaging engine as the underlying microkernel mechanism.)102.417 628.8
+R(VST)5.287 E .287(a, like QNX, supports scat-)-.7 F 4.353
+(ter/gather lists for messages.)72 640.8 R(VST)9.353 E 4.353(a, however)-.7 F
+6.853(,h)-.4 G 4.352(ad to use signi\214cantly dif)288.648 640.8 R 4.352
+(ferent techniques than)-.18 F(QNX--VST)72 652.8 Q 3.576(as)-.7 G 1.077
+(upports virtual memory)130.416 652.8 R 3.577(,w)-.65 G 1.077
+(here QNX can always assume the presence of physical memory)239.657 652.8 R
+(for its messages.)72 664.8 Q F1(6)138.38 660.7 Q .32 LW 144 674.6 72 674.6 DL
+/F3 5.6/Times-Roman@0 SF(4)82 683.12 Q/F4 8/Times-Roman@0 SF(The author)2 3.28
+M .88 -.44('s e).296 H(stimate is 2-3 times harder).44 E(.)-.44 E F3(5)82
+694.92 Q F4 .367(Of course, if there are no runnable threads, the CPU time wil\
+l be parceled out elsewhere in the scheduling)2 3.28 N(tree.)72 708.2 Q F3(6)82
+716.72 Q F4(The QNX designers have designed, but not yet implemented, a virtua\
+l memory capability for their system.)2 3.28 M EP
+%%Page: 3 3
+BP/F0 10/Times-Roman@0 SF(-3-)282.17 48 Q(VST)97 84 Q 3.89(as)-.7 G 1.39
+(tructures the exchange of messages between client and server)127.41 84 R 6.39
+(.A)-.55 G 1.39(would-be client requests)403.46 84 R .841
+(connection; a connection indication including the would-be client')72 96 R
+3.342(sc)-.55 G .842(apabilities is presented to the server)354.81 96 R(.)-.55
+E .29(The server accepts or rejects the connection.)72 108 R .289
+(If accepted, the client can then send messages.)5.289 F .289(Each element)
+5.289 F 1.327
+(in the scatter/gather list of the message is made available in the server)72
+120 R 2.427 -.55('s a).37 H 1.327(ddress space when the server).55 F 1.679
+(receives the message.)72 132 R 1.678
+(The contents are mapped on demand as the server makes reference to the data.)
+6.678 F(Alternatively)72 144 Q 2.739(,t)-.65 G .239(he server can merely pass \
+the message on without touching its contents \(for instance, a mid-)132.139 144
+R 1.389(dle module in a protocol might add a new initial buf)72 156 R 1.389
+(fer without needing to examine the contents being)-.18 F 2.611
+(encapsulated.\) The)72 168 R .111(data was never mapped or read; the passing \
+of data in these cases is thus quite ef)2.611 F(\214cient.)-.18 E .209
+(If the server returns data it is copied into the client')97 183.6 R 2.708(sa)
+-.55 G .208(ddress space before the client')314.534 183.6 R 2.708(sr)-.55 G
+.208(equest is com-)445.814 183.6 R 2.94(pleted. It)72 195.6 R .44(would be de\
+sirable to use the same "lazy" semantics for message mapping as the server)2.94
+F 2.94(,b)-.4 G .44(ut this)478.83 195.6 R .194(would make it dif)72 207.6 R
+.193(\214cult for the server to know when the client is done using the data.)
+-.18 F -.7(Te)5.193 G .193(chniques involving).7 F .858(the "handing of)72
+219.6 R .859(f" of pages of data are possible, but many servers would then hav\
+e to copy data into new)-.18 F
+(pages; any performance bene\214ts can easily be lost.)72 231.6 Q/F1 10
+/Times-Bold@0 SF 2.5(2.6. Filesystem)72 255.6 R(Interface)2.5 E F0 .996
+(Plan 9 imposes a \214lesystem-like interface onto all objects in the system.)
+97 271.2 R .995(QNX permits a server to)5.995 F .893(provide a \214lesystem in\
+terface, but does not pursue such a thing as a goal in its own right.)72 283.2
+R .894(Plan 9 allows)5.894 F 1.863(each process to build its own \214lesystem \
+view by attaching objects at arbitrary points in its \214lesystem)72 295.2 R
+2.963(namespace. QNX)72 307.2 R .463(provides a global view)2.963 F 2.964(,b)
+-.65 G .464(ut does not implement these mount points in the classic UNIX)250.48
+307.2 R .107(\(and Plan 9\) way)72 319.2 R 5.107(.Q)-.65 G .106(NX instead loo\
+ks at its "mount table" as a simple mapping of leading strings for mount)
+154.538 319.2 R(points, and a corresponding server)72 331.2 Q(.)-.55 E(VST)97
+346.8 Q 3.351(ab)-.7 G .851(orrows much from each operating system.)127.981
+346.8 R .852(Like Plan 9, all servers provide their services in)5.851 F .787
+(terms of a \214lesystem-like interface.)72 358.8 R .787
+(The format of the messages sent through the microkernel is standard)5.787 F
+.053(and implements a \214lesystem protocol similar to Plan 9')72 370.8 R 2.552
+(s9)-.55 G 2.552(Pp)304.424 370.8 S(rotocol.)317.536 370.8 Q/F2 7/Times-Roman@0
+SF(7)348.366 366.7 Q F0(VST)354.418 370.8 Q 2.552(au)-.7 G .052
+(se a string table approach like)384.6 370.8 R .388
+(QNX, although the table is private to each process.)72 382.8 R .388
+(In fact, the table and its interfaces are all entirely with)5.388 F
+(the C library; neither the VST)72 394.8 Q 2.5(ak)-.7 G
+(ernel nor its servers have any control over a process' mount table.)202.95
+394.8 Q F1 2.5(2.7. Capabilities)72 418.8 R F0(VST)97 434.4 Q 3.111(ab)-.7 G
+.611
+(reaks from current operating systems in the way it structures capabilities.)
+127.741 434.4 R .61(The desire was to)5.61 F .439(allow a hierarchy of abiliti\
+es, and to allow a given user to create sub-abilities without the intervention\
+ of a)72 446.4 R(system manager)72 458.4 Q 5(.T)-.55 G(he resulting system is \
+powerful, but does not map well onto a POSIX interface.)149.77 458.4 Q .731
+(In VST)97 474 R .731(a, an ability is represented as a dot-separated sequence\
+ of numbers, called an)-.7 F/F3 10/Times-Italic@0 SF(ID)3.23 E F0 5.73(.T)C .73
+(he num-)470.22 474 R .2
+(bers become more speci\214c reading from left to right.)72 486 R .2
+(An object in VST)5.2 F(a)-.7 E F2(8)364.76 481.9 Q F0 .2
+(has a label with such a label, and)370.96 486 R .234(for each position, anoth\
+er bitmask indicating what actions are permitted \(It also has a default acces\
+s, which)72 498 R(is just OR'ed in with any other bits granted.\))72 510 Q
+(For instance, assuming no default:)5 E 40(1. 2. 1. 3)133 528 R 21.39
+(EXEC READ)133 540 R 15.84(WRITE DELETE)233 540 R -.8(Wo)72 558 S .317(uld ind\
+icate that someone possessing 5.3 could not access the object; someone with 1.\
+5 could only exe-).8 F 1.112
+(cute it \(a mismatch discontinues the accumulation\).)72 570 R 3.612(Ah)6.112
+G 1.112(ierarchy of "super users" is gained with the last)306.426 570 R .043
+(rule: someone with 1.2 would gain read, write, excute, and delete abilities!)
+72 582 R .043(When someone possesses an ID)5.043 F .469
+(which matches a label to the length of the ID, the ID is said to)72 594 R F3
+(dominate)2.968 E F0 .468(the label.)2.968 F .468(The remaining bits are)5.468
+F .639(OR'ed in as if the match continued to the end of the label.)72 606 R
+.639(The superuser of a VST)5.639 F 3.139(as)-.7 G .639(ystem, therefore, is)
+426.072 606 R(someone who has an ID of length 0.)72 618 Q .39(One can)97 633.6
+R F3(for)2.89 E(ge)-.37 E F0 2.889(an)2.889 G .389(ew ID; it is permitted if a\
+t least one of the current IDs dominates the new ID to be)169.278 633.6 R(for)
+72 645.6 Q 3.279(ged. Thus,)-.18 F .78(someone who logs in with the ability 5.\
+7 could store all sensitive data with a label of, say)3.279 F(,)-.65 E
+(5.7.1 with all access requiring a full match:)72 657.6 Q .32 LW 144 686.4 72
+686.4 DL/F4 5.6/Times-Roman@0 SF(7)82 694.92 Q/F5 8/Times-Roman@0 SF .527
+(The protocol would have)2 3.28 N/F6 8/Times-Italic@0 SF(been)2.527 E F5(9P)
+2.527 E 2.527(,e)-.888 G .527
+(xcept that it was designed before this level of detail was available for)
+204.386 698.2 R(Plan 9.)72 708.2 Q F4(8)82 716.72 Q F5(More precisely)2 3.28 M
+2(,t)-.52 G(he objects of)140.712 720 Q(fered by standard VST)-.144 E 2(as)-.56
+G(ervers.)262.2 720 Q EP
+%%Page: 4 4
+BP/F0 10/Times-Roman@0 SF(-4-)282.17 48 Q 12.5(5. 7.)135.5 84 R(1)183 84 Q
+10.84(\(0\) \(0\) READ|WRITE|EXECUTE|DELETE)133 96 R .252(If this same user th\
+en wanted to run a somewhat suspect application, he could for)72 114 R .252
+(ge a new ID of 5.7.2, dis-)-.18 F .938
+(able his current IDs, and run the application.)72 126 R .938
+(Since the application does not possess an ID which allows)5.938 F .581
+(access to 5.7.1, the user)72 138 R 1.681 -.55('s d).37 H .581
+(ata is protected.).55 F .58
+(Because such ID manipulation can be done by any user)5.581 F 3.08<2c8c>-.4 G
+(ne-)491.23 138 Q .726(grained protection designs are possible in a way which \
+UNIX forbids without extensive use of super)72 150 R(-user)-.2 E(powers.)72 162
+Q/F1 10/Times-Bold@0 SF 2.5(3. Curr)72 186 R(ent State)-.18 E F0 .016(The VST)
+97 201.6 R 2.516(ak)-.7 G .016(ernel currently comprises 2700 lines of portabl\
+e C, 750 lines of i386-speci\214c C \(using the)145.212 201.6 R 1.162
+("count the semicolons" method\), and 400 lines of i386 assembly code.)72 213.6
+R 1.162(It compiles into roughly 50K of)6.162 F 1.051
+(32-bit i386 object code, with another 10K of data.)72 225.6 R 1.05
+(Device servers exist for the keyboard, screen, \215oppy)6.051 F .272(disk, ST)
+72 237.6 R .272(-506 hard disk, and real-time clock.)-.92 F .272
+(Servers also exist for a \215at contiguous-allocation \214lesystem, a)5.272 F
+.865(DOS \214lesystem, an environment server \(used by getenv\(\)/setenv\(\)\)\
+, a swap manager \(to manage multiple)72 249.6 R .108(swap partitions and perm\
+it dynamic swap partition additions and deletions\), and a service registry da\
+tabase.)72 261.6 R .266(The system boots and runs on top of either a \215at co\
+ntiguous \214lesystem or a DOS \214lesystem.)97 277.2 R(Further)5.265 E .49(de\
+vice drivers and \214lesystems can be started and stopped from the command int\
+erpreter)72 289.2 R 5.49(.T)-.55 G .49(he system does)442.47 289.2 R .87(deman\
+d-paging of executables and does page-stealing when memory becomes scarce usin\
+g a two-handed)72 301.2 R(clock algorithm.)72 313.2 Q 1.232(At the application\
+ level, a C library and include \214les have been written to conform to the PO\
+SIX)97 328.8 R 2.909(speci\214cation. GNU)72 340.8 R .409
+(C, as, and ld have been ported and run natively under VST)2.909 F 2.909
+(a. Emacs)-.7 F .408(and other ameni-)2.908 F .415(ties are also available.)72
+352.8 R .416(As each port identi\214es a missing area, it is coded up based on\
+ the POSIX standard.)5.415 F .187
+(Thus, the system deviates from POSIX more by omission than otherwise.)72 364.8
+R .186(The exception is the area of pro-)5.186 F(tection, where this incompati\
+bility was foreseen and accepted at the conception of the project.)72 376.8 Q
+F1 2.5(4. Futur)72 400.8 R 2.5(eP)-.18 G -.18(ro)122.37 400.8 S(jects).18 E F0
+.453(It is satisfying to have a freely accessible environment on which to prot\
+otype further facilities.)97 416.4 R(Sev-)5.453 E
+(eral categories of experimentation are of active interest to the author)72
+428.4 Q(.)-.55 E F1 2.5(4.1. Performance)72 452.4 R F0(VST)97 468 Q 2.718(ap)
+-.7 G .217(rovides very good interactive and compilation performance on a sing\
+le-user 25 Mhz i386 PC.)127.348 468 R(However)72 480 Q 2.99(,s)-.4 G .49
+(everal areas could be streamlined.)117.63 480 R .49(For small buf)5.49 F .49
+(fers of data the current page-mapping messag-)-.18 F .192(ing techniques are \
+overkill; it would be much cheaper to just copy the actual data around.)72 492
+R 2.691(A")5.191 G .191(fast path" for)451.218 492 R .66(small buf)72 504 R
+.661(fers could shorten code paths for keystrokes, RS-232 bytes, and small wri\
+tes to the screen.)-.18 F(This)5.661 E .515(must be traded of)72 516 R 3.015
+(fa)-.18 G .515(gainst the additional complication in the messaging machinery-\
+-but a prototype is cer)153.86 516 R(-)-.2 E(tainly called for)72 528 Q(.)-.55
+E .065(Some servers, for the sake of simplicity)97 543.6 R 2.566(,d)-.65 G
+2.566(on)265.396 543.6 S .066
+(ot take full advantage of the scatter/gather functions.)277.962 543.6 R(At)
+5.066 E(least the disk drivers and \214lesystems should be carefully optimized\
+ to make best use of scatter/gather lists.)72 555.6 Q F1 2.5(4.2. Clustering)72
+579.6 R F0 1.513(Accessing services through messages immediately leads one to \
+ponder the possibilities of remote)97 595.2 R 3.05(access. The)72 607.2 R .55
+(scatter/gather or)3.05 F .55(ganization and lazy referencing of VST)-.18 F
+3.05(as)-.7 G .55(hould make it possible to move the)360.7 607.2 R .131(data f\
+rom a client to the network interface without any intermediate copying of the \
+data.)72 619.2 R .13(Incoming connec-)5.13 F .4
+(tions must be mapped into a local VST)72 631.2 R 2.9(as)-.7 G .4
+(erver connection; the networking daemon must for)241.16 631.2 R .4
+(ge appropriate)-.18 F(IDs for the client.)72 643.2 Q 2.5(Am)5 G
+(apping database used by the daemon might suf)165.04 643.2 Q(\214ce:)-.18 E
+(theirbox:1.* -> mybox:99.*)133 661.2 Q(trustedbox:* -> mybox:*)133 673.2 Q
+(*:* -> REJECT)133 685.2 Q .653
+(This would allow both access control \(you must have 1.* on)72 703.2 R F1
+(theirbox)3.153 E F0 .653(to log in;)3.153 F F1(trustedbox)3.152 E F0 .652
+(has the same)3.152 F
+(accounts as us\) and dynamic translation of IDs between systems.)72 715.2 Q EP
+%%Page: 5 5
+BP/F0 10/Times-Roman@0 SF(-5-)282.17 48 Q .463
+(The name server is currently a local entity)97 84 R 5.463(.H)-.65 G(owever)
+283.344 84 Q 2.964(,o)-.4 G .464
+(nce remote service access is available, it is a)322.838 84 R 1.616
+(simple matter to import other node')72 96 R 4.115(sn)-.55 G 1.615
+(ame servers and use them locally)235.025 96 R 6.615(.B)-.65 G 1.615
+(ecause VST)390.705 96 R 4.115(as)-.7 G 1.615(upports Plan)452.105 96 R .121(9\
+-style union directories, you could even mount each name server at the same po\
+int in your local \214lesystem)72 108 R .552
+(name space, with your local name server coming \214rst.)72 120 R(Ultimately)
+5.552 E 3.052(,an)-.65 G .552(etwork-aware database system must)358.214 120 R
+1.003(be implemented, but it is interesting to ponder how far these simple and\
+ powerful Plan 9 techniques can)72 132 R(take one.)72 144 Q/F1 10/Times-Bold@0
+SF 2.5(5. Acknowledgements)72 168 R F0 .22(The knowledge and vision of the Pla\
+n 9 and QNX developers is appreciated, both in their papers and)97 183.6 R .058
+(on Usenet.)72 195.6 R .058(This project would not have been possible without \
+the outstanding tools from the Free Software)5.058 F .568
+(Foundation--especially the GNU C compiler and its accompanying utilities.)72
+207.6 R(Finally)5.568 E 3.068(,Iw)-.65 G .567(ould like to thank)432.018 207.6
+R 1.118(the Bill and L)72 219.6 R 1.119
+(ynne Jolitz for the 386BSD source code.)-.55 F 1.119
+(Its availability as a reference helped me unravel)6.119 F
+(many an intricacy of the i386.)72 231.6 Q EP
+%%Trailer
+end

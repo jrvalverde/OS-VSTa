@@ -1,0 +1,92 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	95.02.04.16.44.44;	author vandys;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	95.01.30.04.09.27;	author vandys;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	94.10.06.00.18.20;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@Feature description per release
+@
+
+
+1.3
+log
+@Another 1.3.3 feature
+@
+text
+@Features by release:
+
+v1.3.2:
+
+Added TCP/IP networking with KA9Q package.
+Added ne2000 ethernet interface server.
+Added shared libraries.
+Enhanced RS-232 so you can set parity, data bits, and so forth.
+Added ps(1) command, via the pstat system call interface.
+Added CDROM filesystems.
+Converted all servers to use syslog.
+Port of "vim" vi clone editor.
+Floppy driver now works.
+i387 FPU supported by kernel--library support still TBD.
+
+v1.3.3:
+
+/proc filesystem, ps(1) uses this, as does kill(1).
+Canonical ("line") input mode has command line editing and history.
+Stripped a.out format uses one less block, in general.
+Fixed ld(1) bug which broke code living in the last 32 bytes of
+	an a.out image.
+Add cc(1) compiler, based on lcc compiler.  Fast, simple, lousy
+	code generation.
+More support of read-only files in dos filesystem.
+Greatly improved stat(2) emulation.
+Major fixes in permission calculations.  Now works pretty much like
+	it was originally described.
+Fixed namer to allow logins (actually, access to fs/root entry
+	for shlib startup) from other than sys.sys capability.
+Performance tweaks for vstafs.
+Removed various dead code, added more pstat(2) support for kernel
+	config values.
+Added $s/$S to adb to allow incremental symbol table loading (so you
+	can "$s /vsta/lib/libc.shl" and get shlib symbols).
+Allow VM page stealing to be active before swap space is configured.
+	Only stealing of unmodified pages is possible, but this can
+	still be a help on smaller systems.
+Port of "rh" find(1)-like tool using C syntax.
+Add ~ and ~user processing for open()
+@
+
+
+1.2
+log
+@V1.3.3 features
+@
+text
+@d40 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d15 25
+@

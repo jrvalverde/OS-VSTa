@@ -1,0 +1,137 @@
+head	1.5;
+access;
+symbols
+	V1_3_1:1.3
+	V1_3:1.2
+	V1_2:1.2
+	V1_1:1.2
+	V1_0:1.2;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	95.02.04.16.45.49;	author vandys;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	94.12.21.05.39.14;	author vandys;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	94.04.27.17.54.10;	author vandys;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.05.21.17.46.32;	author vandys;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.05.19.18.55.28;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@README
+@
+
+
+1.5
+log
+@Update copyright
+@
+text
+@This is VSTA, the Valencia Simple TAsker.
+
+Well, with VM, SMP, processes, threads, and messaging it isn't as
+simple as I envisioned it when I made up the name, but there you
+are.
+
+This software was written from scratch entirely by:
+
+	Andrew Valencia
+	815 Maple St.
+	San Mateo, CA  94402
+	(415)343-6758
+	vandys@@cisco.com
+
+and is copyright 1993,1994,1995 by Andrew Valencia.  Use of this software
+is permitted under the terms listed in the file "license", which
+should accompany this file at the top level of the software
+distribution.  If it is missing for any reason, you may contact
+Andrew Valencia directly to receive a copy.
+
+There are a couple source files which are not original; they are
+identified in their headers, and are used and available under the
+terms expressed by the original author.  From memory, they are:
+
+	The i386 disassembler
+	The random number generator
+	The scanf() family of functions
+	Several commands/utilities which have been ported:
+		GNU C, gas, ld, rc, cat, Microemacs
+
+This list is not necessarily complete; refer to the actual source
+files.
+
+In addition to the requirements spelled out in the license, I also
+specifically require that any distribution of this software include this
+file, and the "license" file.  I have not placed those noisy copyright
+headers into each and every file, so I am counting on the Berne (sp?)
+Convention and the presence of the "readme" and "license" files.
+@
+
+
+1.4
+log
+@Update E-mail addr
+@
+text
+@d15 1
+a15 1
+and is copyright 1993,1994 by Andrew Valencia.  Use of this software
+@
+
+
+1.3
+log
+@Update copyright
+@
+text
+@d13 1
+a13 1
+	jtk@@netcom.com
+@
+
+
+1.2
+log
+@Fix up list, tidy up wording
+@
+text
+@d15 1
+a15 1
+and is copyright 1993 by Andrew Valencia.  Use of this software
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d23 2
+a24 2
+terms expressed by the original author.  To the best of my recollection,
+they are:
+d28 5
+d37 2
+a38 2
+headers into each file, so I am counting on the Berne (sp?) Convention
+and the presence of the "readme" and "license" files.
+@

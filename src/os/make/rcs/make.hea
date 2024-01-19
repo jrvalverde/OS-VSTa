@@ -1,0 +1,231 @@
+head	1.12;
+access;
+symbols
+	V1_3_1:1.9
+	V1_3:1.9
+	V1_2:1.8
+	V1_1:1.8
+	V1_0:1.6;
+locks; strict;
+comment	@# @;
+
+
+1.12
+date	94.05.30.00.47.08;	author vandys;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	94.05.30.00.39.39;	author vandys;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	94.05.30.00.32.21;	author vandys;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	94.04.06.21.56.55;	author vandys;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	93.11.16.02.44.35;	author vandys;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	93.09.28.19.34.36;	author vandys;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	93.08.04.22.31.01;	author vandys;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	93.05.19.19.03.51;	author vandys;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.05.06.23.25.00;	author vandys;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.05.03.21.29.50;	author vandys;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.03.17.18.15.16;	author vandys;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.03.01.03.24.25;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@Head part of prototypical makefiles
+@
+
+
+1.12
+log
+@Remove debugging info
+@
+text
+@CC= gcc
+AS= as
+CPP= cpp
+LD= ld
+INCS= -I../../include -I.
+DEFS= -DKERNEL -DDEBUG -DKDB
+CFLAGS= $(DEFS) $(INCS) -O
+LIBS= ../../libc/libusr.a
+
+all: vsta
+
+config: config.c
+	$(CC) -o config config.c
+
+locore.o: assym.h
+
+assym.h: genassym
+	./genassym assym.h
+
+genassym: ../mach/genassym.c
+	$(CC) $(INCS) -o genassym ../mach/genassym.c
+
+@
+
+
+1.11
+log
+@Don't need touch
+@
+text
+@d7 1
+a7 1
+CFLAGS= $(DEFS) $(INCS) -O -g
+@
+
+
+1.10
+log
+@Native build
+@
+text
+@a18 1
+	touch assym.h
+@
+
+
+1.9
+log
+@Add clean, clobber, install targets.  Convert to new
+library source organization
+@
+text
+@d18 1
+a18 1
+	go32 genassym assym.h
+@
+
+
+1.8
+log
+@Source reorg
+@
+text
+@d8 1
+a8 1
+LIBS= ../../lib/libusr.a
+@
+
+
+1.7
+log
+@Don't use command.com I/O redirection
+@
+text
+@d5 1
+a5 1
+INCS= -I.. -I../include -I.
+d8 1
+a8 1
+LIBS= ../lib/libusr.a
+@
+
+
+1.6
+log
+@Move sys/ under include to map onto standard <sys/foo.h>
+location.
+@
+text
+@d18 1
+a18 1
+	go32 genassym > assym.h
+@
+
+
+1.5
+log
+@Get -g info even when optimizing
+@
+text
+@d5 1
+a5 1
+INCS= -I.. -I.
+@
+
+
+1.4
+log
+@Add KDB to enable debugger
+@
+text
+@d7 1
+a7 1
+CFLAGS= $(DEFS) $(INCS) -O
+@
+
+
+1.3
+log
+@Get rid of libkern
+@
+text
+@d6 1
+a6 1
+DEFS= -DKERNEL -DDEBUG
+@
+
+
+1.2
+log
+@Start using the optimizer
+@
+text
+@d8 1
+a8 1
+LIBS= ../lib/libkern.a
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 1
+a7 1
+CFLAGS= $(DEFS) $(INCS) -g
+@

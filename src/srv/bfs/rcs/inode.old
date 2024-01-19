@@ -1,0 +1,170 @@
+head	1.3;
+access;
+symbols
+	V1_3_1:1.3
+	V1_3:1.3
+	V1_2:1.3
+	V1_1:1.3
+	V1_0:1.2;
+locks; strict;
+comment	@ * @;
+
+
+1.3
+date	93.11.16.02.47.08;	author vandys;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.02.10.20.31.02;	author vandys;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.01.29.15.39.01;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@Per-file information
+@
+
+
+1.3
+log
+@Source reorg
+@
+text
+@/*
+ * inode.c
+ *	Routines for managing per-file information
+ */
+#include "bfs.h"
+#include <hash.h>
+#include <sys/assert.h>
+extern void *malloc(), dir_map();
+
+static int cur_inode = 0;	/* Current in-core inodes */
+static struct hash		/* Hash of in-core inodes */
+	*ihash;
+
+/*
+ * ifind()
+ *	Given inode #, return inode
+ *
+ * If in-core, increment reference and return.  If haven't reached
+ * our limit, allocate a new one and read from directory.  Otherwise
+ * return 0.
+ */
+struct inode *
+ifind(uint inum)
+{
+	struct inode *i;
+	int x;
+
+	/*
+	 * Try for in-core hash first
+	 */
+	i = hash_lookup(ihash, inum);
+	if (i) {
+		i->i_refs += 1;
+		return(i);
+	}
+
+	/*
+	 * Nope.  See if we can get a new structure.
+	 */
+	if (cur_inode >= MAXINODE)
+		return(0);
+	i = malloc(sizeof(struct inode));
+	if (i == 0)
+		return(0);
+
+	/*
+	 * Initialize fields, get directory entry information
+	 */
+	i->i_num = inum;
+	i->i_refs = 1;
+	dir_map(inum, &i->i_dir);
+
+	/*
+	 * Add to inode hash
+	 */
+	if (hash_insert(ihash, inum, i))
+		goto err;
+
+	/*
+	 * Update inode count, return inode
+	 */
+	cur_inode += 1;
+	return(i);
+
+	/*
+	 * Failure
+	 */
+err:
+	free(i);
+	return(0);
+}
+
+/*
+ * ifree()
+ *	Indicate that an inode is no longer needed
+ */
+void
+ifree(struct inode *i)
+{
+	i->i_refs -= 1;
+	if (i->i_refs > 0)
+		return;
+	if (hash_delete(ihash, i->i_num)) {
+		ASSERT(0, "ifree: not in hash");
+	}
+	cur_inode -= 1;
+	free(i);
+}
+
+/*
+ * iref()
+ *	Bump reference on inode object
+ */
+void
+iref(struct inode *i)
+{
+	i->i_refs += 1;
+	ASSERT_DEBUG(i->i_refs != 0, "iref: wrapped");
+}
+
+/*
+ * iinit()
+ *	Initialize inode hash
+ */
+void
+iinit(void)
+{
+	ihash = hash_alloc(MAXINODE/4);
+}
+@
+
+
+1.2
+log
+@Remove useless extern dec'l
+@
+text
+@d5 2
+a6 2
+#include <bfs/bfs.h>
+#include <lib/hash.h>
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@a7 1
+extern int blkdev;
+@

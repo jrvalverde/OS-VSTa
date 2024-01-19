@@ -1,0 +1,16 @@
+vsta: $(OBJS) dbsym
+	$(LD) -e _start -o vsta $(OBJS) $(LIBS)
+	./dbsym vsta
+
+dbsym: ../dbg/dbsym.c
+	$(CC) $(DEFS) -o dbsym ../dbg/dbsym.c
+
+clean:
+	rm -f genassym assym.h locore.s *.o dbsym config
+
+clobber: clean
+	rm -f vsta
+
+install: vsta
+	strip vsta
+	cp vsta ../../boot

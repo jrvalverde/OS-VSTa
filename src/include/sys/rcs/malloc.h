@@ -1,0 +1,196 @@
+head	1.3;
+access;
+symbols
+	V1_3_1:1.2
+	V1_3:1.1
+	V1_2:1.1
+	V1_1:1.1
+	V1_0:1.1;
+locks; strict;
+comment	@ * @;
+
+
+1.3
+date	94.10.05.17.57.14;	author vandys;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	94.04.19.00.28.37;	author vandys;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.01.29.16.14.43;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@An additional interface to malloc().  Not used much; the standard
+C malloc() interface is easier.
+@
+
+
+1.3
+log
+@Add FPU support
+@
+text
+@#ifndef _MALLOC_H
+#define _MALLOC_H
+/*
+ * malloc.h
+ *	Function defs for a malloc()/free() kernel interface
+ */
+#include <sys/types.h>
+#include <sys/assert.h>
+
+/*
+ * Basic functions
+ */
+extern void *malloc(uint size);
+extern void free(void *);
+
+/*
+ * MALLOC/FREE interface.  Maps directly to malloc()/free() unless
+ * DEBUG, in which case we tally use of memory types
+ */
+#ifdef DEBUG
+extern void *_malloc(uint, uint), _free(void *, uint);
+
+#define MALLOC(size, type) _malloc(size, type)
+#define FREE(ptr, type) _free(ptr, type)
+#else
+#define MALLOC(size, type) malloc(size)
+#define FREE(ptr, type) free(ptr)
+#endif
+
+/*
+ * malloc() types, their values as handed to MALLOC()
+ */
+#define MT_RMAP (0)		/* struct rmap */
+#define MT_EVENT (1)		/* Event lists */
+#define MT_EXITGRP (2)		/* Exit group */
+#define MT_EXITST (3)		/*  ...status */
+#define MT_MSG (4)		/* struct msg */
+#define MT_SYSMSG (5)		/* struct sysmsg */
+#define MT_PORT (6)		/* struct port */
+#define MT_PORTREF (7)		/* struct portref */
+#define MT_PVIEW (8)		/* struct pview */
+#define MT_PSET (9)		/* struct pset */
+#define MT_PROC (10)		/* struct proc */
+#define MT_THREAD (11)		/* struct thread */
+#define MT_KSTACK (12)		/* A kernel stack */
+#define MT_VAS (13)		/* struct vas */
+#define MT_PERPAGE (14)		/* struct perpage */
+#define MT_QIO (15)		/* struct qio */
+#define MT_SCHED (16)		/* struct sched */
+#define MT_SEG (17)		/* struct seg */
+#define MT_EVENTQ (18)		/* struct eventq */
+#define MT_L1PT (19)		/* Root page table */
+#define MT_L2PT (20)		/*  ...2nd level */
+#define MT_PGRP (21)		/* Process grouping */
+#define MT_ATL (22)		/* Attach lists */
+#define MT_FPU (23)		/* FPU save state */
+
+#define MALLOCTYPES (24)	/* UPDATE when you add values above */
+				/* ALSO check n_allocname[] */
+
+#ifdef MALLOC_INTERNAL
+/*
+ * per-page information.  We overlay this on the existing "struct core"
+ * storage already available per-page.
+ */
+struct page {
+	ushort p_bucket;	/* Bucket # */
+	ushort p_out;		/* # elems not free in this page */
+};
+
+/*
+ * Structure of a chunk of storage while on the free list
+ * in a bucket
+ */
+struct freehead {
+	struct freehead
+		*f_forw,	/* A doubly-linked list */
+		*f_back;
+};
+#define EMPTY(bucket) ((bucket)->b_mem.f_forw == &(bucket)->b_mem)
+
+/*
+ * Our per-storage-size information
+ */
+struct bucket {
+	struct freehead		/* List of chunks of memory */
+		b_mem;
+	uint b_elems;		/* # chunks available in this bucket */
+	uint b_pages;		/* # pages used for this bucket size */
+	uint b_size;		/* Size of this kind of chunk */
+	lock_t b_lock;		/* Lock for manipulating this bucket */
+} buckets[PGSHIFT];
+#define MIN_BUCKET 4		/* At least 16 bytes allocated */
+
+#ifdef DEBUG
+/*
+ * Our per-storage-type tabulation
+ */
+extern ulong n_alloc[MALLOCTYPES];
+#endif
+
+#endif /* MALLOC_INTERNAL */
+
+#endif /* _MALLOC_H */
+@
+
+
+1.2
+log
+@Conver to MALLOC
+Move some private stuff into header file so kernel
+debugger can get at it.
+@
+text
+@d56 1
+d58 1
+a58 1
+#define MALLOCTYPES (23)	/* UPDATE when you add values above */
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d17 63
+a79 9
+ * Interface with provisions for future functionality.  If we have
+ * to hunt memory leaks, this interface provides a little more
+ * information.
+ */
+#define MALLOC(var, size, kind, flags) \
+	ASSERT_DEBUG(flags != M_NOWAIT, "malloc: illegal flags"); \
+	(var) = malloc(size);
+#define FREE(var, kind) \
+	free(var);
+d82 1
+a82 1
+ * Values for "kind"
+d84 9
+a92 6
+#define M_QIO 1		/* struct qio */
+#define M_ATL 2		/* struct atl */
+#define M_VAS 3		/* struct vas */
+#define M_PVIEW 4	/* struct pview */
+#define M_PSET 5	/* struct pset */
+#define M_PPAGE 6	/* array of struct perpage under pset */
+d94 1
+d96 1
+a96 1
+ * Values for "flags"
+d98 4
+a101 2
+#define M_NOWAIT 1	/* Don't sleep--currently unsupported */
+#define M_WAITOK 2	/* Sleeping is fine */
+@

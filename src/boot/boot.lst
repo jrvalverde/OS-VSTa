@@ -1,0 +1,36 @@
+# The console driver
+# cons -color
+# or cons -mono		- For MGA text screen location
+cons
+
+# The keyboard driver
+# kbd
+
+# The name to port # mapper
+namer
+
+# The WD (ST-506 & IDE) driver
+wd d0:readp
+# or wd d0:cmos		- For CMOS parameter setup
+# wd d0:cmos d1:cmos	- For two drives
+# wd d0:cmos d1:readp	-  ...any combination, as needed
+#		- D0 from CMOS, D1 from controller
+# wd d0:<cyls>:<heads>:<sec/track>
+#		- Manual setup; hand-specify the parameters
+
+# Adaptec 1542b/c SCSI disk support
+# You will almost certainly also want to read ../srv/mach/scsi/readme
+# cam
+
+# The swap driver.  It handles management of multiple swap partitions.
+swap
+
+# The first DOS filesystem
+dos -p disk/wd:wd0_dos0 fs/root
+# This mounts the first DOS partition on the first WD drive, and
+#  advertises it (via namer) as the root filesystem for the system.
+
+# The only program not a server in this file
+init
+# This reads the /vsta/etc/inittab and fires off most of the usual cruft
+#  needed to boot.

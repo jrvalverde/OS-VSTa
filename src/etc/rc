@@ -1,0 +1,14 @@
+#
+# Commands executed once during bootup
+#
+
+#
+# Global environment variables
+#	These are values likely to be the same among all users
+#
+echo -n nansi > /env/TERM
+echo -n "/vsta/bin:." > /env/PATH
+echo -n 'vsta$ ' > /env/PS1
+
+# All done
+exit 0

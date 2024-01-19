@@ -1,0 +1,189 @@
+head	1.5;
+access;
+symbols
+	V1_3_1:1.1
+	V1_3:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	94.12.21.05.39.06;	author vandys;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	94.10.05.20.26.28;	author vandys;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	94.10.04.19.50.10;	author vandys;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	94.05.30.21.32.58;	author vandys;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	94.04.11.00.32.04;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@Walk tree firing makes
+@
+
+
+1.5
+log
+@Add /proc server
+@
+text
+@#!/vsta/bin/sh
+set -e
+set -x
+if test \( "$1" = "all" \) -o \( "$1" = "install" \) -o \( "$1" = "" \)
+then
+	cd libc
+	make libusr.a
+	cd ..
+fi
+cd os/make
+make $1
+cd ../..
+cd libc
+make $1
+cd ..
+cd srv
+cd bfs
+make $1
+cd cmd
+make $1
+cd ..
+cd ..
+cd namer
+make $1
+cd ..
+cd swap
+make $1
+cd ..
+cd env
+make $1
+cd ..
+cd dos
+make $1
+cd ..
+cd tmpfs
+make $1
+cd ..
+cd pipe
+make $1
+cd ..
+cd vstafs
+make $1
+cd cmd
+make $1
+cd ..
+cd ..
+cd devnull
+make $1
+cd ..
+cd cdfs
+make $1
+cd ..
+cd proc
+make $1
+cd cmd
+make $1
+cd ..
+cd ..
+cd mach
+cd cons2
+make $1
+cd ..
+cd fd
+make $1
+cd ..
+cd wd
+make $1
+cd ..
+cd rs232
+make $1
+cd ..
+cd scsi
+make $1
+cd ..
+cd mouse
+make $1
+cd ..
+cd par
+make $1
+cd ..
+cd joystick
+make $1
+cd ..
+cd nvram
+make $1
+cd ..
+cd ne
+make $1
+cd ..
+cd ..
+cd ..
+cd bin.src/test
+make $1
+cd ../login
+make $1
+cd ../init
+make $1
+cd ../testsh
+make $1
+cd ../time
+make $1
+cd ../roff
+make $1
+cd ../adb
+make $1
+cd ../..
+exit 0
+@
+
+
+1.4
+log
+@Add CDFS
+@
+text
+@d53 6
+@
+
+
+1.3
+log
+@Add ne2000 driver
+@
+text
+@d50 3
+@
+
+
+1.2
+log
+@NVRAM server
+@
+text
+@d78 3
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d75 3
+@

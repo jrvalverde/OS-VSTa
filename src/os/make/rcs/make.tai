@@ -1,0 +1,151 @@
+head	1.7;
+access;
+symbols
+	V1_3_1:1.6
+	V1_3:1.6
+	V1_2:1.4
+	V1_1:1.4
+	V1_0:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.7
+date	94.05.30.00.32.21;	author vandys;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	94.04.06.22.18.12;	author vandys;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	94.04.06.21.56.55;	author vandys;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	93.09.28.19.35.18;	author vandys;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	93.08.19.04.14.18;	author vandys;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	93.08.13.17.29.43;	author vandys;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	93.03.01.03.24.25;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@Tail part of prototypical makefile
+@
+
+
+1.7
+log
+@Native build
+@
+text
+@vsta: $(OBJS) dbsym
+	$(LD) -e _start -o vsta $(OBJS) $(LIBS)
+	./dbsym vsta
+
+dbsym: ../dbg/dbsym.c
+	$(CC) $(DEFS) -o dbsym ../dbg/dbsym.c
+
+clean:
+	rm -f genassym assym.h locore.s *.o dbsym config
+
+clobber: clean
+	rm -f vsta
+
+install: vsta
+	strip vsta
+	cp vsta ../../boot
+@
+
+
+1.6
+log
+@Get rid of @@objs; native VSTa build
+@
+text
+@d3 1
+a3 1
+	go32 dbsym vsta
+@
+
+
+1.5
+log
+@Add clean, clobber, install targets.  Convert to new
+library source organization
+@
+text
+@d2 1
+a2 1
+	$(LD) -e _start -o vsta @@objs $(LIBS)
+@
+
+
+1.4
+log
+@Use del, not rm
+@
+text
+@d9 8
+a16 7
+	del genassym
+	del assym.h
+	del locore.s
+	del *.o
+	del vsta
+	del dbsym
+	del config
+@
+
+
+1.3
+log
+@Fix make clean
+@
+text
+@d9 7
+a15 1
+	rm -f genassym assym.h locore.s *.o vsta dbsym config
+@
+
+
+1.2
+log
+@Fix dbsym compile
+@
+text
+@d9 1
+a9 4
+	rm -f genassym assym.h locore.s *.o
+
+clobber: clean
+	rm -f vsta
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 1
+a6 1
+	$(CC) $(CFLAGS) -o dbsym ../dbg/dbsym.c
+@

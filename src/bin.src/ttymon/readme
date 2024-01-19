@@ -1,0 +1,23 @@
+This is just a placeholder for the TTY monitor.
+
+This monitor is needed because the keyboard and screen drivers
+are "pure" servers; they know nothing about each other nor about
+their client(s).  To gain a UNIX-ish kind of TTY interface, we
+need a server process which:
+	(1) sends events when it sees ^C, ^\, etc.
+	(2) Stops output when it sees ^S typed
+
+Although not required, we would also like:
+	(1) Multiple virtual screens
+	(2) Ability to detach and reattach from TTY sessions
+	(3) Optionally provide a --more-- after each screenful
+
+There are two approaches.  The first is to completely emulate the
+TTY in software, much like the BSD screen(1) utility.  This allows
+multiple active screens, but uses a fair amount of CPU.  The second
+is to add a "dump screen" message to the screen server, and then
+have the TTY monitor snapshot the screen as it switches to a new
+screen.  Writes to non-visible screens will block until you switch
+back (much like "stty tostop", though in terms of whole screens.)
+This technique would use much fewer CPU cycles, but at the cost
+of of forbidding background (offscreen) I/O.

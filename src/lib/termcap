@@ -1,0 +1,115 @@
+#
+# TERMCAP - Terminal Capabilities Database
+#
+
+#
+# NANSI with insert/delete line
+#
+nansi|pcterm|NANSI enhanced ansi.sys driver:\
+        :co#80:li#25:cl=\E[2J:am:bs:cm=\E[%i%2;%2H:nd=\E[C:up=\E[A:\
+	:ce=\E[K:\
+        :so=\E[7m:se=\E[m:\
+	:do=\E[B:mi:ms:\
+        :kd=\EP:kl=\EK:ku=\EH:kr=\EM:kh=\EG:\
+	:AL=\E[%dL:al=\E[L:\
+	:DL=\E[%dM:dl=\E[M:\
+	:IC=\E[%d@:ic=\E[@:\
+	:DC=\E[%dP:dc=\E[P:
+
+#
+# IBM-PC compatibles using ANSI.SYS Console Driver
+#
+pc|ibmpc|IBM Personal Computer with ANSI.SYS Driver:\
+        :co#80:li#25:cl=\E[2J:am:bs:cm=\E[%i%2;%2H:nd=\E[C:up=\E[A:\
+        :so=\E[7m:se=\E[m:\
+	:do=\E[B:mi:ms:\
+        :kd=\EP:kl=\EK:ku=\EH:kr=\EM:kh=\EG:\
+	:k1=\E^A:k2=\E^B:k3=\E^D:k4=\E^E:k5=\E^F:k6=\E^G:k7=\E^H:\
+	:k8=\E^I:k9=\E^J:k0=\E^K:\
+	:ti=\E[0;72;27;72p\E[0;80;27;80p\E[0;77;27;77p\E[0;75;27;75p\E[0;73;2p\E[0;81;6p\E[0;71;27;71p\E[0;59;27;1p\E[0;60;27;2p\E[0;61;27;4p\E[0;62;27;5p\E[0;63;27;6p\E[0;64;27;7p\E[0;65;27;8p\E[0;66;27;9p\E[0;67;27;10p\E[0;68;27;11p:\
+	:te=\E[0;72;0;72p\E[0;80;0;80p\E[0;77;0;77p\E[0;75;0;75p\E[0;73;0;73p\E[0;81;0;81p\E[0;71;0;71p\E[0;59;0;59p\E[0;60;0;60p\E[0;61;0;61p\E[0;62;0;62p\E[0;63;0;63p\E[0;64;0;64p\E[0;65;0;65p\E[0;66;0;66p\E[0;67;0;67p\E[0;68;0;68p:
+
+#
+# Hersey Micro-Consulting's FANSI-CONSOLE
+#
+fc|fansi|Hersey Micro-Consultings Fast ANSI Console Driver:\
+	:co#80:li#25:am:bs:cm=\E[%i%2;%2H:nd=\E[C:up=\E[A:\
+	:cd=\E[J:cl=\E[;H\E[2J:ce=\E[K:\
+	:al=\E[L:dl=\E[M:AL=\E[%2L:DL=\E[%2M:\
+	:sc=\E[s:rc=\E[u:\
+	:dc=\E[P:\
+	:sf=\ED:sr=\EM:\
+	:so=\E[7m:se=\E[m:\
+	:do=\E[B:mi:ms:\
+	:kd=\EP:kl=\EK:ku=\EH:kr=\EM:kh=\EG:\
+	:k1=\E^A:k2=\E^B:k3=\E^D:k4=\E^E:k5=\E^F:\
+	:ti=\E[0;72;27;72p\E[0;80;27;80p\E[0;77;27;77p\E[0;75;27;75p\E[0;73;2p\E[0;81;6p\E[0;71;27;71p\E[0;59;27;1p\E[0;60;27;2p\E[0;61;27;4p\E[0;62;27;5p:\
+	:te=\E[0;72;0;72p\E[0;80;0;80p\E[0;77;0;77p\E[0;75;0;75p\E[0;73;0;73p\E[0;81;0;81p\E[0;71;0;71p\E[0;59;0;59p\E[0;60;0;60p\E[0;61;0;61p\E[0;62;0;62p:
+
+#
+# Digital Equipment Corporation (DEC) VT-100
+#
+vt100|vt-100|DEC vt100:\
+	:am:co#80:li#24:bs:cm=5\E[%i%2;%2H:\
+	:ce=3\E[K:cd=50\E[J:cl=50\E[;H\E[2J:\
+	:if=/lib/vt100.tab:pt:\
+	:so=2\E[7m:se=2\E[m:\
+	:nd=2\E[C:up=2\E[A:\
+	:is=\E>\E[?3l\E[?4l\E[?5l\E[?7h\E[?8h:\
+	:ks=\E[?1h\E=:ke=\E[?1l\E>:\
+	:ku=\EOA:kd=\EOB:kr=\EOC:kl=\EOD:kh=\E[H:\
+	:k1=\EOP:k2=\EOQ:k3=\EOR:k4=\EOS:k5=\EOT:\
+	:k6=\EOU:k7=\EOV:k8=\EOW:k9=\EOX:\
+	:sr=5\EM:
+
+#
+# HP 150 / HP 262x Terminal Family
+#
+hp150|hp2623:Hewlett Packard 150 and 262x:\
+	:kb=^H:ku=\EA:kd=\EB:kl=\ED:kr=\EC:\
+	:kh=\Eh:ks=\E&s1A:ke=\E&s0A:ti=\E&j@\r\E3\r:bt=\Ei:\
+	:cm=\E&a%r%dc%dY:dc=2\EP:ip=2:\
+	:kn#8:k1=\Ep\r:k2=\Eq\r:k3=\Er\r:k4=\Es\r:k5=\Et\r:\
+	:k6=\Eu\r:k7=\Ev\r:k8=\Ew\r:\
+	:ta=2^I:do=^J:al=\EL:am:up=\EA:\
+	:bs:cd=\EJ:ce=\EK:cl=\EH\EJ:\
+	:co#80:li#24:da:db:dl=\EM:ei=\ER:im=\EQ:\
+	:pt:if=/lib/std.tab:mi:nd=\EC:so=\E&dJ:se=\E&d@:
+
+#
+# American National Standard Institute (ANSI) Definition
+#  of a "Standard Terminal" (note the similarity to VT-100 - guess
+#  who was on the standards committee!).
+#
+ANSI|ansi|American National Standard Terminal:\
+	:am:co#80:li#24:bs:cm=5\E[%i%2;%2H:\
+	:ce=3\E[K:cd=5\E[J:cl=5\E[;H\E[2J:\
+	:al=1\E[L:dl=1\E[M:\
+	:AL=2\E[%2L:DL=2\E[%2M:\
+	:pt:if=/lib/std.tab:\
+	:so=2\E[7m:se=2\E[m:\
+	:nd=2\E[C:up=2\E[A:do=\E[B\
+	:is=\E>\E[?3l\E[?4l\E[?5l\E[?7h\E[?8h:\
+	:ks=\E[?1h\E=:ke=\E[?1l\E>:\
+	:ku=\E[A:kd=\E[B:kr=\E[C:kl=\E[D:kh=\E[H:\
+	:k1=\E[001z:k2=\E[002z:k3=\E[003z:k4=\E[004z:k5=\E[005z:\
+	:k6=\E[006z:k7=\E[007z:k8=\E[007z:k9=\E[009z:\
+	:sf=\ED:sr=\EM:
+
+#
+# Heathkit/Zenith H-100/Z-100 Personal Computer
+#
+zc|z100c|h100c|z-100c|h-100c|heath/zenith z-100 pc with color monitor:\
+	:vs=\Ex4\Em71:ve=\Ey4\Em70:tc=z100:
+z1|z100|h100|z-100|h-100|heath/zenith z-100 pc:\
+	:al=5*\EL:bs:cd=\EJ:ce=\EK:cl=5*\EE:cm=1*\EY%+ %+ :co#80:dc=1*\EN:\
+	:dl=5*\EM:do=\EB:ei=\EO:ho=\EH:im=\E@:li#24:mi:nd=\EC:as=\EF:ae=\EG:\
+	:ms:pt:sr=\EI:se=\Eq:so=\Ep:up=\EA:vs=\Ex4:ve=\Ey4:\
+	:kb=^h:ku=\EA:kd=\EB:kl=\ED:kr=\EC:kh=\EH:kn#10:\
+	:k0=\EJ:k1=\ES:k2=\ET:k3=\EU:k4=\EV:k5=\EW:k6=\EP:k7=\EQ:\
+	:k8=\ER:k9=\EOI:
+
+#
+# Generic "dumb" terminal
+#
+dumb|unknown:co#80:os:am:

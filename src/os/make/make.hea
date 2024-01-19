@@ -1,0 +1,22 @@
+CC= gcc
+AS= as
+CPP= cpp
+LD= ld
+INCS= -I../../include -I.
+DEFS= -DKERNEL -DDEBUG -DKDB
+CFLAGS= $(DEFS) $(INCS) -O
+LIBS= ../../libc/libusr.a
+
+all: vsta
+
+config: config.c
+	$(CC) -o config config.c
+
+locore.o: assym.h
+
+assym.h: genassym
+	./genassym assym.h
+
+genassym: ../mach/genassym.c
+	$(CC) $(INCS) -o genassym ../mach/genassym.c
+

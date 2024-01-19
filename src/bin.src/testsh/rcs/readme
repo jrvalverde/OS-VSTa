@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols
+	V1_3_1:1.1
+	V1_3:1.1
+	V1_2:1.1
+	V1_1:1.1
+	V1_0:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	93.01.29.16.21.28;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@A README
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@This is a simple standalone interface to open/close/read/write/mkdir/chdir.
+It lets you navigate a set of servers without requiring a full
+interactive shell environment.
+@

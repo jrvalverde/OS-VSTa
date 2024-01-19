@@ -1,0 +1,6 @@
+attach eth eth0 1500
+ip addr 198.92.29.53
+route add default eth0
+host baruk
+domain suffix cisco.com
+domain addserver 131.108.1.111

@@ -1,0 +1,26 @@
+VSTa version 1.3.3 is distributed in several files:
+
+	- vsta_133.readme, this file
+	- vsta.tz, source and binaries for the core system
+	- gzip.exe, tar.exe, go32.exe, DOS programs to unzip and extract .tz's
+	- V*.gz, archives of the VSTa mailing list
+	- Sources to commands ported:
+	    ash.tz, bin86.tz, binutl.tz, ed.tz, emacs.tz, gas.tz,
+	    gcc.tz, grep.tz, less.tz, make.tz, rc.tz, sh.tz, backgamm.tz
+	    curses.tz, gzip.tz, sed.tz, ka9q.tz, vim.tz
+	- coding.txt, ten.doc, guidelines for C coding style used
+	- vsta_intro.*, a small intro to VSTa
+
+The extension ".tz" means that this is a gzip'ed, tar'ed archive.  You need
+to "gzip -d" it, and then extract it with tar (tar -xvf vsta.t, and so
+forth).  All tar archives are stored with a relative pathname starting at
+the root of the source directory.  You should make /vsta on your DOS
+partition (mkdir \vsta, under DOS), cd there, and extract vsta.tz.  You
+can extract other sources if desired.
+
+See the files "license" and "readme" in vsta.tz first.  Then
+consult the file "roadmap.txt", also in vsta.tz in the doc/ subdir.
+That should be enough to get you started.
+
+				Andy Valencia
+				vandys@cisco.com

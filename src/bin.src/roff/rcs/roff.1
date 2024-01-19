@@ -1,0 +1,289 @@
+head	1.1;
+access;
+symbols
+	V1_3_1:1.1
+	V1_3:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	94.04.07.00.59.53;	author vandys;	state Exp;
+branches;
+next	;
+
+
+desc
+@man page
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@
+
+
+TPR(1)              UNIX Programmer's Manual               TPR(1)
+
+
+
+NAME
+     tpr - text processor
+
+SYNOPSIS
+     tpr [ options ] file ...
+
+DESCRIPTION
+     Tpr formats text according to control lines embedded in the
+     text in the given files or standard input if none is speci-
+     fied.  Input consists of intermixed _t_e_x_t _l_i_n_e_s, which con-
+     tain information to be formatted, and _r_e_q_u_e_s_t _l_i_n_e_s, which
+     contain instructions about how to format it.  Request lines
+     begin with a distinguished _c_o_n_t_r_o_l _c_h_a_r_a_c_t_e_r, normally a
+     period.  Output lines may be _f_i_l_l_e_d as nearly as possible
+     with words without regard to input lineation.  Line _b_r_e_a_k_s
+     may be caused at specified places by certain commands, or by
+     the appearance of an empty input line or an input line
+     beginning with a space.
+
+     The capabilities of tpr are specified in the attached
+     Request Summary.  Numerical values are denoted there by n or
+     +n, titles by t, and single characters by c.  Numbers
+     denoted +n may be signed + or -, in which case they signify
+     relative changes to a quantity, otherwise they signify an
+     absolute resetting.  Missing n fields are ordinarily taken
+     to be 1, missing t fields to be empty, and c fields to shut
+     off the appropriate special interpretation.
+
+     Running titles usually appear at top and bottom of every
+     page.  They are set by requests like
+
+               .he 'part1'part2'part3'
+
+     Part1 is left justified, part2 is centered, and part3 is
+     right justified on the page.  Any % sign in a title is
+     replaced by the current page number.  Any nonblank may serve
+     as a quote.
+
+     The options currently available are:
+
+     d         print directives encountered in input on diagnos-
+               tic output (debugging only).
+
+     efile     divert error messages to "file".
+
+     i[index]  open the index file (see .rf directive), default
+               name is "index".
+
+     nN        number first page N (default 0).
+
+     sN        stop after every N pages (default 1) and wait for
+               newline from terminal iff output is to terminal
+
+
+
+Printed 1/4/85                4/82                              1
+
+
+
+
+
+
+TPR(1)              UNIX Programmer's Manual               TPR(1)
+
+
+
+               device.  There is no initial pause.
+
+     In addition, "-" in the input file list indicates that stan-
+     dard input is to be opened and read.
+
+DIAGNOSTICS
+     Of course!
+
+SEE ALSO
+     nroff(1), troff(1)
+
+AUTHOR
+     Many people have worked on the ancestors of tpr, known by
+     names such as runoff, roff, etc.  Ken Yap ( University of
+     Sydney ) can only claim credit for rewriting it in C.
+
+BUGS
+     Tpr may produce output too rapidly for people used to slower
+     formatters.
+
+     Although tpr is written in C, it will probably be utterly
+     frozen because of the archaic convention of control lines
+     and text lines and paucity of structured directives.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Printed 1/4/85                4/82                              2
+
+
+
+
+
+
+TPR(1)              UNIX Programmer's Manual               TPR(1)
+
+
+
+                         REQUEST SUMMARY
+
+_R_e_q_u_e_s_t    _B_r_e_a_k  _I_n_i_t_i_a_l _M_e_a_n_i_n_g
+.ad        yes    yes     Begin adjusting right margins.
+.ar        no     arabic  Arabic page numbers.
+.br        yes    -       Causes a line break - the filling of
+                          the current line is stopped.
+.bd n      no     -       Bold the printable characters in the
+                          next n lines.
+.bl n      yes    -       Insert of n blank lines, on new page if
+                          necessary.
+.bp +n     yes    n=1     Begin new page and number it n; no n
+                          means "+1".
+.cc c      no     c=.     Control character becomes "c".
+.ce n      yes    -       Center the next n input lines, without
+                          filling.
+.de xx     no     -       Define parameterless macro to be
+                          invoked by request ".xx" (definition
+                          ends on line beginning "..").
+.ef t      no     t=      Even foot title becomes t.
+.eg        no     arabic  English page numbers.
+.eh t      no     t=      Even head title becomes t.
+.fi        yes    yes     Begin filling output lines.
+.fo t      no     t=      All foot titles are t.
+.he t      no     t=      All head titles are t.
+.in +n     yes    -       Indent n spaces from left margin.
+.ix +n     no     -       Same as ".in" but without break.
+.li n      no     -       Literal, treat next n lines as text.
+.ll +n     no     n=65    Line length including indent is n char-
+                          acters.
+.ls +n     yes    n=1     Line spacing set to n lines per output
+                          line.
+.m1 n      no     n=3     n-1 blank lines put between the top of
+                          page and head title.
+.m2 n      no     n=1     n blank lines put between head title
+                          and beginning of text on page.
+.m3 n      no     n=1     n blank lines put between end of text
+                          and foot title.
+.m4 n      no     n=3     n-1 blank lines put between the foot
+                          title and the bottom of page.
+.na        yes    no      Stop adjusting the right margin.
+.ne n      no     -       Begin new page, if n output lines can-
+                          not fit on present page.
+.nf        yes    no      Stop filling output lines.
+.of t      no     t=      Odd foot title becomes t.
+.oh t      no     t=      Odd head title becomes t.
+.pl +n     no     n=66    Total paper length taken to be n lines.
+.po +n     no     n=0     Page offset.  All lines are preceded by
+                          n spaces.
+.re +n     no     -       Restore environment n levels back.
+.rf +n     no     n=1     Save the next n following lines in the
+                          index file with page number.
+
+
+
+Printed 1/4/85                4/82                              3
+
+
+
+
+
+
+TPR(1)              UNIX Programmer's Manual               TPR(1)
+
+
+
+.ro        no     arabic  Roman page numbers.
+.rp n      no     n=1     Output n blank pages at the next page
+                          break.  Page reservations are cumula-
+                          tive.
+.se        yes    -       Save environment.  The "environment"
+                          consists of all current settings
+                          affected by the following directives:
+                          .ad, .ar, .bd, .bl, .cc, .ce, .ef, .eh,
+                          .fi, .fo, .he, .in, .ix, .li, .ll, .ls,
+                          .m1, .m2, .m3, .m4, .na, .ne, .nf, .of,
+                          .oh, .pl, .po, .ro, .sk, .sp, .ta, .tc,
+                          .ti, .ub, .ul.
+.sk n      no     -       Produce n blank pages starting next
+                          page.
+.so file   no     -       Include file "file".
+.sp n      yes    -       Insert block of n blank lines, except
+                          at top of page.
+.ta n n..         9,17,.. Pseudotab settings.  Initial tab set-
+                          tings are columns 9 17 25 ...
+.tc c      no     space   Tab replacement character becomes "c".
+.ti +n     yes    -       Temporarily indent next output line n
+                          spaces.
+.ub c      no     ' '     Unpaddable blank is "c".
+.ul n      no     -       Underline the letters and numbers in
+                          the next n input lines.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Printed 1/4/85                4/82                              4
+
+
+@
